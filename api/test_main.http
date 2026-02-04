@@ -1,0 +1,6 @@
+# Test your FastAPI endpoints
+
+###
+# get '/predict' test
+GET http://127.0.0.1:8000/predict
+Accept: application/json
