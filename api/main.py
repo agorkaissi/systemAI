@@ -1,21 +1,33 @@
-from fastapi import FastAPI, Body, HTTPException
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi import FastAPI
+from pydantic import BaseModel, Field
 import logging
+import joblib
 
 logging.basicConfig(
     level=logging.ERROR,
     format="%(levelname)s | %(name)s | %(message)s"
 )
-
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="../ui/build/static", check_dir=False), name="static")
+#model = joblib.load(".pkl") #loaded model
 
-#@app.get("/")
-#def serve_react_app():
-#   return FileResponse("../ui/build/index.html")
+class IrisRequest(BaseModel):
+    sepal_length: float = Field(gt=0)
+    sepal_width: float = Field(gt=0)
+    petal_length: float = Field(gt=0)
+    petal_width: float = Field(gt=0)
 
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
+
+@app.post("/predict")
+def predict(data: IrisRequest):
+    features = [[
+        data.sepal_length,
+        data.sepal_width,
+        data.petal_length,
+        data.petal_width
+    ]]
+    prediction = model.predict(features)[0]
+    return {"prediction": prediction}
