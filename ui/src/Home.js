@@ -47,7 +47,8 @@ const Home = () => {
             }
 
             const json = await response.json();
-            setPrediction(json.prediction);
+            console.log("API RESPONSE:", json);
+            setPrediction(json.class_name);
             setLoading(false)
         } catch (err) {
             setError(err.message);
@@ -66,7 +67,7 @@ const Home = () => {
                     <input
                         type="number"
                         step="0.1"
-                        min="0"
+                        min="0.1"
                         name="sepal_length"
                         placeholder="Sepal length (cm)"
                         value={data.sepal_length}
@@ -77,7 +78,7 @@ const Home = () => {
                     <input
                         type="number"
                         step="0.1"
-                        min="0"
+                        min="0.1"
                         name="sepal_width"
                         placeholder="Sepal width (cm)"
                         value={data.sepal_width}
@@ -88,7 +89,7 @@ const Home = () => {
                     <input
                         type="number"
                         step="0.1"
-                        min="0"
+                        min="0.1"
                         name="petal_length"
                         placeholder="Petal length (cm)"
                         value={data.petal_length}
@@ -99,7 +100,7 @@ const Home = () => {
                     <input
                         type="number"
                         step="0.1"
-                        min="0"
+                        min="0.1"
                         name="petal_width"
                         placeholder="Petal width (cm)"
                         value={data.petal_width}
@@ -112,6 +113,7 @@ const Home = () => {
                     </center>
                 </form>
 
+
                 {loading && (
                     <center>
                         <div className="lds-facebook">
@@ -123,10 +125,11 @@ const Home = () => {
                 )}
 
 
-                {!loading && prediction && (
-                    <p>
-                        <strong>Prediction:</strong> {prediction}
-                    </p>
+                {prediction !== null && (
+                    <div>
+                        <h3>Prediction result:</h3>
+                        <p>Class name: {prediction}</p>
+                    </div>
                 )}
 
                 {error && (

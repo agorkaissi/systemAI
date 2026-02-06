@@ -9,7 +9,7 @@ logging.basicConfig(
 )
 app = FastAPI()
 
-#model = joblib.load(".pkl") #loaded model
+model = joblib.load("iris_model.joblib") #loaded model
 
 class IrisRequest(BaseModel):
     sepal_length: float = Field(gt=0)
@@ -29,5 +29,13 @@ def predict(data: IrisRequest):
         data.petal_length,
         data.petal_width
     ]]
-    prediction = model.predict(features)[0]
-    return {"prediction": prediction}
+
+    # Make prediction
+    prediction = int(model.predict(features)[0])
+
+    iris_classes = ["setosa", "versicolor", "virginica"]
+
+    return {
+        "class_id": prediction,
+        "class_name": iris_classes[prediction]
+    }
