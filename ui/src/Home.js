@@ -128,7 +128,7 @@ const Home = () => {
                 {prediction !== null && (
                     <div>
                         <h3>Prediction result:</h3>
-                        <p>Class name: {prediction}</p>
+                        <p> Class name: {prediction}</p>
                     </div>
                 )}
 

@@ -17,9 +17,9 @@ class IrisRequest(BaseModel):
     petal_length: float = Field(gt=0)
     petal_width: float = Field(gt=0)
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+@app.get("/healthcheck")
+def healthcheck():
+    return {"status": "ok"}
 
 @app.post("/predict")
 def predict(data: IrisRequest):

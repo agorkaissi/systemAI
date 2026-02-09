@@ -1,0 +1,107 @@
+# Project Name
+SystemAI
+
+# Description
+This repository contains an assignment for the "Python in Artificial Intelligence Systems" course:
+[PySI] Task 8.1: A Simple Regressor or Classifier as a FastAPI Service
+
+
+# Technologies Used
+- Python 3.14
+- Scikit-learn library
+- FastAPI
+- HTML / CSS (optional)
+- uv python env
+
+# Project Structure
+```
+systemAI/
+│
+├── api/
+│   ├── iris_model.joblib
+│   ├── main.py
+│   ├── model.py
+│   ├── requirements.txt
+│   └── test_main.http
+│ 
+├── ui/   
+│   ├── public
+│   │   ├── index.html
+│   │   ├── manifest.json
+│   │   └── robots.txt
+│   │ 
+│   └── src
+│       ├── App.css
+│       ├── App.js
+│       ├── App.test.js
+│       ├── Home.js
+│       ├── index.css
+│       ├── index.js
+│       ├── Layout.js
+│       ├── reportWebVitals.js
+│       ├── router.js
+│       └── setupTests.js
+│
+├── .dockerignore
+├── .gitignore   
+├── Dockerfile  
+├── pyproject.toml
+├── README.md
+└── uv.lock
+```
+## Files ignored by Git
+The project uses `.gitignore` to exclude virtual environments, environment
+variables, cache files, etc.
+
+## Installation
+1. Clone the repository:
+```
+https://github.com/agorkaissi/systemAI.git
+```
+2. Create and Activate a virtual environment (recommended):
+- Backend (Python / FastAPI)
+```
+cd systemAI
+
+uv venv
+source .venv/bin/activate
+uv pip install -e .
+
+```
+- Frontend (UI / Node)
+```
+cd systemAI/ui
+
+npm install
+```
+5. Install dependencies from pyproject.toml:
+```
+cd /systemAI
+
+uv pip install -e .
+```
+
+## Running the Application
+```
+uv run uvicorn api.main:app --reload
+
+cd systemAI/ui
+npm start
+```
+then open your browser (Tested on Brave) and open:
+
+The application will be available at:
+http://localhost:3000
+
+Interactive Swagger documentation:
+http://127.0.0.1:8000/docs
+
+Redoc documentation:
+http://127.0.0.1:8000/redoc
+
+## API Endpoints
+### General
+| Method | Path         | Description                                                              |
+|--------|--------------|--------------------------------------------------------------------------|
+| GET    | /healthcheck | Test endpoint                                                            |
+| POST   | /predict     | The endpoint is used to perform predictions based on the submitted data. |                       |

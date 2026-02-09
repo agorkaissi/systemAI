@@ -1,6 +1,17 @@
 # Test your FastAPI endpoints
 
-###
-# get '/predict' test
-GET http://127.0.0.1:8000/predict
+# GET '/healtcheck' test
+GET http://127.0.0.1:8000/healthcheck
 Accept: application/json
+
+###
+# POST '/predict' test
+POST http://127.0.0.1:8000/predict
+Accept: application/json
+
+{
+  "sepal_length": "0.1",
+  "sepal_width": "0.2",
+  "petal_length": "0.2",
+  "petal_width" :"0.3"
+}
