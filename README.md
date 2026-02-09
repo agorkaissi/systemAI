@@ -65,33 +65,31 @@ variables, cache files, etc.
 ```
 https://github.com/agorkaissi/systemAI.git
 ```
-2. Create and Activate a virtual environment (recommended):
+2. Create and Activate a virtual environment & install all dependencies:
 - Backend (Python / FastAPI)
 ```
-cd systemAI
+cd systemAI/api
 
 uv venv
-source .venv/bin/activate
+.venv\Scripts\activate
+
+uv pip install -r requirements.txt
 
 ```
 - Frontend (UI / Node)
 ```
-cd systemAI/ui
-
+cd ui
 npm install
-```
-5. Install dependencies from pyproject.toml:
-```
-cd /systemAI
-
-uv pip install -e .
 ```
 
 ## Running the Application
+- Backend
 ```
 cd systemAI/api
 uv run uvicorn api.main:app --reload
-
+```
+- Frontend
+```
 cd systemAI/ui
 npm start
 ```
