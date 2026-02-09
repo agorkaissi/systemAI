@@ -68,12 +68,8 @@ https://github.com/agorkaissi/systemAI.git
 2. Create and Activate a virtual environment & install all dependencies:
 - Backend (Python / FastAPI)
 ```
-cd systemAI/api
-
-uv venv
-.venv\Scripts\activate
-
-uv pip install -r requirements.txt
+cd systemAI
+uv sync
 
 ```
 - Frontend (UI / Node)
@@ -83,12 +79,12 @@ npm install
 ```
 
 ## Running the Application
-- Backend
+- Backend (separate console)
 ```
 cd systemAI/api
 uv run uvicorn api.main:app --reload
 ```
-- Frontend
+- Frontend (separate console)
 ```
 cd systemAI/ui
 npm start
