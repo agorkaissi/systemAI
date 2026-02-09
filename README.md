@@ -65,7 +65,6 @@ cd systemAI
 
 uv venv
 source .venv/bin/activate
-uv pip install -e .
 
 ```
 - Frontend (UI / Node)
@@ -83,6 +82,7 @@ uv pip install -e .
 
 ## Running the Application
 ```
+cd systemAI/api
 uv run uvicorn api.main:app --reload
 
 cd systemAI/ui
@@ -104,4 +104,5 @@ http://127.0.0.1:8000/redoc
 | Method | Path         | Description                                                              |
 |--------|--------------|--------------------------------------------------------------------------|
 | GET    | /healthcheck | Test endpoint                                                            |
-| POST   | /predict     | The endpoint is used to perform predictions based on the submitted data. |                       |
+| POST   | /predict     | The endpoint is used to perform predictions based on the submitted data. |
+|

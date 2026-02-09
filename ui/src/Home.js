@@ -48,7 +48,10 @@ const Home = () => {
 
             const json = await response.json();
             console.log("API RESPONSE:", json);
-            setPrediction(json.class_name);
+            setPrediction({
+                class_id: json.class_id,
+                class_name: json.class_name,
+            });
             setLoading(false)
         } catch (err) {
             setError(err.message);
@@ -128,7 +131,8 @@ const Home = () => {
                 {prediction !== null && (
                     <div>
                         <h3>Prediction result:</h3>
-                        <p> Class name: {prediction}</p>
+                        <p> Class ID: <strong>{prediction.class_id}</strong></p>
+                        <p> Class Name:<strong> {prediction.class_name}</strong></p>
                     </div>
                 )}
 
