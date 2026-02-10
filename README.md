@@ -22,7 +22,7 @@ built-in Iris dataset.
 # Requirements
 - python: 3.14.1
 - uv: 0.9.28
-- node.js: 0.9.28
+- node.js: v24.13.0
 
 # Project Structure
 ```
