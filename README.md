@@ -19,6 +19,11 @@ built-in Iris dataset.
 - HTML / CSS (optional)
 - uv python env
 
+# Requirements
+- python: 3.14.1
+- uv: 0.9.28
+- node.js: 0.9.28
+
 # Project Structure
 ```
 systemAI/
