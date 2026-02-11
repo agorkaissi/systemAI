@@ -77,7 +77,7 @@ uv sync
 ```
 - Frontend (UI / Node)
 ```
-cd ui
+cd systemAI/ui
 npm install
 ```
 
